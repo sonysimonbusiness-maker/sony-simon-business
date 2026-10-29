@@ -415,3 +415,9 @@ body.menu-open{overflow:hidden}
 .co-half{font-size:17px;line-height:1.5;color:#E6ECFF;border-top:1px solid rgba(255,255,255,.16);padding-top:18px;margin-bottom:22px}.co-half b{color:#fff}
 .calc-out .btn{align-self:flex-start}.co-fine{margin-top:14px;font-size:13px;color:#A9B7DA}
 @media(max-width:899px){.calc-grid{grid-template-columns:1fr}.calc-in,.calc-out{padding:24px}}
+
+.when{font:700 12px Barlow,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin:0 0 6px}
+.steps li .when{margin-top:4px}
+.quote{background:var(--ink);color:#fff;padding:84px 0}.quote figure{margin:0;text-align:center}
+.quote blockquote{margin:0 0 22px}.quote blockquote p{font:italic 400 clamp(30px,4.4vw,48px)/1.15 "Instrument Serif",Georgia,serif;color:#fff}
+.quote figcaption{display:flex;flex-direction:column;gap:2px;color:#B9C4E4}.quote figcaption b{color:#fff;font-size:17px}
