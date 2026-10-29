@@ -75,6 +75,23 @@
 
 
 
+<section class="calc" id="calc"><div class="wrap"><p class="kick">A quick check</p><h2>What is manual work costing you?</h2><p class="sub">Move the sliders to match your team. This is a rough estimate, just to make the problem visible.</p>
+  <div class="calc-grid">
+    <div class="calc-in">
+      <div class="crow"><label for="c-ppl">People who do this work <output id="o-ppl" for="c-ppl">3</output></label><input id="c-ppl" type="range" min="1" max="25" value="3"></div>
+      <div class="crow"><label for="c-hrs">Hours each, per week, on spreadsheets, texts and paperwork <output id="o-hrs" for="c-hrs">5</output></label><input id="c-hrs" type="range" min="1" max="25" value="5"></div>
+      <div class="crow"><label for="c-rate">What an hour of their time costs you <output id="o-rate" for="c-rate">$25</output></label><input id="c-rate" type="range" min="10" max="100" step="5" value="25"></div>
+    </div>
+    <div class="calc-out" aria-live="polite">
+      <p class="co-l">Roughly, per year</p>
+      <p class="co-big" id="co-cost">$19,500</p>
+      <p class="co-s"><span id="co-hrs">780</span> hours of manual work</p>
+      <p class="co-half">If a simple tool cut that in half, you would get back about <b id="co-half-h">390 hours</b> and <b id="co-half-c">$9,750</b> a year.</p>
+      <a class="btn" id="calc-cta" href="#contact">Tell me what is slowing you down</a>
+      <p class="co-fine">An estimate, not a promise. Your real numbers will differ.</p>
+    </div>
+  </div></div></section>
+
 <section class="build" id="build"><div class="wrap">
   <h2>What I build.</h2>
   <p class="sub">If it runs on a screen, I can build it. If it needs a skill I don't have yet, I learn it or bring in the right person.</p>

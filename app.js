@@ -27,6 +27,21 @@ if(ta)ta.addEventListener('input',function(){if(ta.value!==last)last=''})})();
 var pastHero=false,atForm=false,upd=function(){var on=pastHero&&!atForm;m.classList.toggle('on',on);m.setAttribute('aria-hidden',on?'false':'true');m.tabIndex=on?0:-1};
 new IntersectionObserver(function(e){pastHero=!e[0].isIntersecting;upd()},{threshold:0}).observe(hero);
 new IntersectionObserver(function(e){atForm=e[0].isIntersecting;upd()},{threshold:.15}).observe(ct)})();
+/* calculator: what is manual work costing you */
+(function(){var P=document.getElementById('c-ppl'),H=document.getElementById('c-hrs'),R=document.getElementById('c-rate');if(!P||!H||!R)return;
+var fmt=function(n){return '$'+Math.round(n).toLocaleString('en-US')},num=function(n){return Math.round(n).toLocaleString('en-US')};
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,shown={c:0,h:0},raf=0,cur={c:0,h:0};
+var el={cost:document.getElementById('co-cost'),hrs:document.getElementById('co-hrs'),hh:document.getElementById('co-half-h'),hc:document.getElementById('co-half-c')};
+function paint(c,h){el.cost.textContent=fmt(c);el.hrs.textContent=num(h)}
+function calc(){var ppl=+P.value,hrs=+H.value,rate=+R.value,h=ppl*hrs*52,c=h*rate;
+ [[P,'o-ppl',ppl],[H,'o-hrs',hrs],[R,'o-rate','$'+rate]].forEach(function(x){document.getElementById(x[1]).textContent=x[2];var mn=+x[0].min,mx=+x[0].max;x[0].style.setProperty('--p',((x[0].value-mn)/(mx-mn)*100)+'%')});
+ el.hh.textContent=num(h/2)+' hours';el.hc.textContent=fmt(c/2);cur={c:c,h:h};
+ if(reduce){paint(c,h);shown={c:c,h:h};return}
+ cancelAnimationFrame(raf);(function step(){shown.c+=(cur.c-shown.c)*.22;shown.h+=(cur.h-shown.h)*.22;paint(shown.c,shown.h);if(Math.abs(cur.c-shown.c)>1)raf=requestAnimationFrame(step);else{shown={c:cur.c,h:cur.h};paint(cur.c,cur.h)}})()}
+[P,H,R].forEach(function(i){i.addEventListener('input',calc)});calc();
+var cta=document.getElementById('calc-cta'),ta=form&&form.querySelector('textarea[name=goal]');
+if(cta&&ta)cta.addEventListener('click',function(){var line='We lose roughly '+num(cur.h)+' hours a year (about '+fmt(cur.c)+') to manual work. ';
+ var v=ta.value;if(!v.trim()||/^We lose roughly/.test(v))ta.value=line;else if(v.indexOf('We lose roughly')<0)ta.value=v.replace(/\s*$/,'')+' '+line})})();
 /* smooth anchors */
 $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length<2)return;var t=$(id);if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+pageYOffset,behavior:calm?'auto':'smooth'});history.replaceState(null,'',id)})});
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
