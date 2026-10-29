@@ -371,3 +371,15 @@ body.menu-open{overflow:hidden}
 /* short laptop screens: keep the intro inside the first screen */
 @media(min-width:900px) and (max-height:820px){.hero h1{font-size:clamp(44px,min(7.6vw,9.6vh),150px);margin-bottom:18px}.hero-in{padding-top:84px;padding-bottom:64px}.hero .lede{font-size:18px}}
 @media(min-width:900px) and (max-height:720px){.hero .for{display:none}}
+
+/* three stories */
+.stories{background:#fff}.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.story{display:flex;flex-direction:column;border-radius:var(--r);overflow:hidden;background:var(--bg);box-shadow:inset 0 0 0 1px var(--line)}
+.story-img{display:block;width:100%;height:210px;object-fit:cover}
+.story-in{padding:24px 26px 28px;display:flex;flex-direction:column;flex:1}
+.story-tag{display:flex;align-items:center;justify-content:space-between;gap:10px;font:700 12px Barlow,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.story h3{font:800 32px/1.02 "Barlow Condensed",sans-serif;margin-bottom:16px}
+.story dl{flex:1}.story dt{font:700 11px Barlow,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin:14px 0 4px}.story dd{color:#3C4A63;font-size:16px;line-height:1.5}
+.story-link{margin-top:20px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--blue);align-self:flex-start;padding-bottom:2px}.story-link:hover{color:var(--blue)}
+.smore{margin-top:30px;color:var(--muted);font-size:17px}.smore a{color:var(--ink);font-weight:600}
+@media(max-width:899px){.sgrid{grid-template-columns:1fr}.story-img{height:190px}}

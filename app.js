@@ -51,7 +51,7 @@ if(pin&&$('.fix-stage')){
   svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML=d};
  drawTangle();addEventListener('resize',drawTangle);
  var live=false;
- var tl=gsap.timeline({scrollTrigger:{trigger:'.fix-stage',start:'top top',end:'+=3400',scrub:.6,pin:true,anticipatePin:1,
+ var tl=gsap.timeline({scrollTrigger:{trigger:'.fix-stage',start:'top top',end:'+=2200',scrub:.6,pin:true,anticipatePin:1,
   onUpdate:function(s){var p=s.progress,after=p>.37;
    if(after&&title.dataset.s!=='a'){title.dataset.s='a';kick.textContent='The fix';title.textContent='Simple tools that fit.'}else if(!after&&title.dataset.s==='a'){title.dataset.s='';kick.textContent='The problem';title.textContent='Work lives in ten places.'}
    if(p>.56&&!live){live=true;slEl.dataset.live='1';startLoop()}else if(p<.5&&live){live=false;slEl.dataset.live='0';resetLoop()}}}});
