@@ -383,3 +383,4 @@ body.menu-open{overflow:hidden}
 .story-link{margin-top:20px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--blue);align-self:flex-start;padding-bottom:2px}.story-link:hover{color:var(--blue)}
 .smore{margin-top:30px;color:var(--muted);font-size:17px}.smore a{color:var(--ink);font-weight:600}
 @media(max-width:899px){.sgrid{grid-template-columns:1fr}.story-img{height:190px}}
+.form-note a{color:#fff;text-decoration:underline}

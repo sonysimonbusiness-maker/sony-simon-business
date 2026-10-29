@@ -3,13 +3,17 @@ var $=function(s,c){return (c||document).querySelector(s)},$$=function(s,c){retu
 var pin=document.documentElement.classList.contains('pin'),calm=document.documentElement.classList.contains('calm');
 /* form */
 var form=$('#form'),note=$('#note');
-var HOOK="https://hook.us2.make.com/oe24qeoj05tg1b5bgqatd0vugcatnpmh";
+var MAIL='sonysimon.business@gmail.com',t0=Date.now();
 if(form)form.addEventListener('submit',function(e){e.preventDefault();var f=new FormData(form),name=(f.get('name')||'').trim(),email=(f.get('email')||'').trim(),goal=(f.get('goal')||'').trim();
- if(!name||!goal||!/^\S+@\S+\.\S+$/.test(email)){note.textContent='Please add your name, a valid email and a sentence about what you need.';note.className='form-note err';return}
- var btn=form.querySelector('button[type=submit]');btn.disabled=true;note.className='form-note';note.textContent='Sending…';
- var body=new URLSearchParams({name:name,email:email,goal:goal,page:document.title,website:f.get('website')||''});
- var fb=function(){note.textContent='Could not send. Opening your email app instead.';location.href='mailto:sonysimon.business@gmail.com?subject='+encodeURIComponent('Project inquiry from '+name)+'&body='+encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+goal);btn.disabled=false};
- fetch(HOOK,{method:'POST',mode:'no-cors',body:body}).then(function(){note.textContent='Thanks, '+name.split(' ')[0]+'. I will reply by email soon.';form.reset();btn.disabled=false}).catch(fb)});
+ var say=function(h,cls){note.className='form-note'+(cls?' '+cls:'');note.innerHTML=h};
+ if(!name||!goal||!/^\S+@\S+\.\S+$/.test(email)){say('Please add your name, a valid email and a sentence about what you need.','err');return}
+ var btn=form.querySelector('button[type=submit]');btn.disabled=true;say('Sending\u2026');
+ var fail=function(){btn.disabled=false;say('That did not go through. Your message is still here. Please try again, or email me at <a href="mailto:'+MAIL+'?subject='+encodeURIComponent('Project inquiry from '+name)+'&body='+encodeURIComponent(goal)+'">'+MAIL+'</a>.','err')};
+ var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},12000);
+ fetch('/api/inquiry',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,goal:goal,page:document.title,website:f.get('website')||'',t:Date.now()-t0}),signal:ctl?ctl.signal:undefined})
+ .then(function(r){clearTimeout(tm);return r.json().then(function(j){return{ok:r.ok&&j&&j.ok}},function(){return{ok:false}})})
+ .then(function(r){if(r.ok){say('Thanks, '+name.split(' ')[0]+'. I will reply by email soon.');form.reset();btn.disabled=false}else fail()})
+ .catch(function(){clearTimeout(tm);fail()})});
 /* smooth anchors */
 $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length<2)return;var t=$(id);if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+pageYOffset,behavior:calm?'auto':'smooth'});history.replaceState(null,'',id)})});
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
