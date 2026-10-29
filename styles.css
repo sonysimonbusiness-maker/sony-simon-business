@@ -384,3 +384,11 @@ body.menu-open{overflow:hidden}
 .smore{margin-top:30px;color:var(--muted);font-size:17px}.smore a{color:var(--ink);font-weight:600}
 @media(max-width:899px){.sgrid{grid-template-columns:1fr}.story-img{height:190px}}
 .form-note a{color:#fff;text-decoration:underline}
+
+/* contact picker */
+.pick{margin:-6px 0 22px}.pick-l{font-size:14px;font-weight:600;color:#B9C4E4;margin-bottom:10px}
+.pick-row{display:flex;flex-wrap:wrap;gap:10px}
+.chip{font:600 15px Barlow,sans-serif;color:#E6ECFF;background:#122038;border:1.5px solid #34425C;border-radius:999px;padding:10px 16px;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.chip:hover{border-color:#6F8CFF;transform:translateY(-1px)}
+.chip[aria-pressed="true"]{background:#2347FF;border-color:#2347FF;color:#fff}
+.chip:focus-visible{outline:3px solid #9DB0FF;outline-offset:2px}

@@ -14,6 +14,14 @@ if(form)form.addEventListener('submit',function(e){e.preventDefault();var f=new 
  .then(function(r){clearTimeout(tm);return r.json().then(function(j){return{ok:r.ok&&j&&j.ok}},function(){return{ok:false}})})
  .then(function(r){if(r.ok){say('Thanks, '+name.split(' ')[0]+'. I will reply by email soon.');form.reset();btn.disabled=false}else fail()})
  .catch(function(){clearTimeout(tm);fail()})});
+/* contact picker: tap a topic, get a starter sentence */
+(function(){var chips=$$('.chip'),ta=form&&form.querySelector('textarea[name=goal]');if(!chips.length||!ta)return;
+var S={'Spreadsheets and texts':'We run things from spreadsheets and texts, and it is getting hard to keep track. ','Too much paperwork':'We still do a lot of paperwork by hand and I want it to be simpler. ','I need a website':'I need a clear website that gets customers to contact me. ','Something else':''};var last='';
+chips.forEach(function(c){c.addEventListener('click',function(){var t=c.getAttribute('data-t'),txt=S[t];
+ chips.forEach(function(o){o.setAttribute('aria-pressed',o===c?'true':'false')});
+ var v=ta.value;if(!v.trim()||v===last){ta.value=txt;last=txt}else if(txt&&v.indexOf(txt.trim())<0){ta.value=v.replace(/\s*$/,'')+' '+txt;last=''}
+ ta.focus();try{ta.setSelectionRange(ta.value.length,ta.value.length)}catch(e){}})});
+if(ta)ta.addEventListener('input',function(){if(ta.value!==last)last=''})})();
 /* smooth anchors */
 $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length<2)return;var t=$(id);if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+pageYOffset,behavior:calm?'auto':'smooth'});history.replaceState(null,'',id)})});
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
