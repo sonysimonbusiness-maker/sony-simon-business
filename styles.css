@@ -392,3 +392,7 @@ body.menu-open{overflow:hidden}
 .chip:hover{border-color:#6F8CFF;transform:translateY(-1px)}
 .chip[aria-pressed="true"]{background:#2347FF;border-color:#2347FF;color:#fff}
 .chip:focus-visible{outline:3px solid #9DB0FF;outline-offset:2px}
+
+.priv{flex-basis:100%;font-size:13px;color:#8FA0C8;margin-top:2px}
+.mcta{display:none}
+@media(max-width:899px){.mcta{display:block;position:fixed;left:16px;right:16px;bottom:14px;z-index:90;text-align:center;background:#2347FF;color:#fff;font:700 16px Barlow,sans-serif;padding:15px 18px;border-radius:999px;text-decoration:none;box-shadow:0 10px 30px rgba(10,20,80,.45);transform:translateY(140%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}.mcta.on{transform:none}}
