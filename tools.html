@@ -87,44 +87,61 @@ body{overflow-x:hidden}
 .tl a.card h2{font-size:28px;margin-bottom:6px}
 .tl a.card p{color:var(--muted);font-size:16px;margin:0}
 .tl h2.grp{grid-column:1/-1;font-size:20px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin:14px 0 0}
+
+.tp-top{position:sticky;top:0;z-index:20;background:rgba(245,244,240,.92);backdrop-filter:saturate(1.4) blur(8px);-webkit-backdrop-filter:saturate(1.4) blur(8px);margin:0 -24px;padding:14px 24px;border-bottom:1px solid var(--line)}
+.tp-top .nav2{display:flex;gap:6px;align-items:center}
+.tp-top .nav2 a{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff}
+.tp-top .nav2 a:hover{border-color:var(--blue);color:var(--blue)}
+.pill{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15px;padding:8px 14px 8px 10px;border-radius:999px;background:#fff;border:1.5px solid var(--line);margin-bottom:18px}
+.pill:hover{border-color:var(--blue);color:var(--blue)}
+.ico{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:16px;margin-bottom:14px;box-shadow:0 6px 16px rgba(12,26,43,.16)}
+.tl a.card{position:relative;transition:transform .15s,box-shadow .15s,border-color .15s}
+.tl a.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(12,26,43,.10)}
+.tl a.card .ico{width:48px;height:48px;border-radius:14px;margin-bottom:12px;box-shadow:none}
+.tl a.card .go{position:absolute;right:18px;top:20px;color:var(--muted);font-size:20px}
+.tl a.card:hover .go{color:var(--blue)}
+@media (prefers-reduced-motion:reduce){.tl a.card{transition:none}.tl a.card:hover{transform:none}}
+@media (max-width:420px){.tp-top{margin:0 -16px;padding:12px 16px}.tp-top .nav2 a{padding:7px 11px;font-size:14px}}
 </style>
 </head>
 <body>
 <div class="tp">
   <div class="tp-top">
     <a class="logo" href="/" aria-label="Sony, home"><svg viewBox="0 0 64 64" width="32" height="32" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#2347FF"/><path d="M46 19H27a6.5 6.5 0 0 0 0 13H37a6.5 6.5 0 0 1 0 13H18" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="19" r="3.4" fill="#BFD0FF"/><circle cx="18" cy="45" r="3.4" fill="#fff"/></svg><span>Sony</span></a>
-    <a class="back" href="/tools.html">All free tools</a>
+    <div class="nav2"><a href="/tools.html">All tools</a><a href="/">Home</a></div>
   </div>
   <main>
     <div class="tp-hero">
+      <a class="pill" href="/">← Back to home page</a><br><span class="ico" style="background:#0C1A2B"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.5 2.5-2.4-.6-.6-2.4 2.5-2.5z"/></svg></span>
       <p class="kick">Free, no signup needed</p>
       <h1>Free tools.</h1>
       <p>Simple calculators that give a clear answer from a few numbers. Built by Sony, who builds software and automations for small businesses.</p>
     </div>
     <div class="tl">
       <h2 class="grp">Logistics</h2>
-      <a class="card" href="/load-profit-calculator.html"><h2>Load profit calculator</h2><p>Profit per load, profit per mile and your break-even rate. Plus a free load tracker spreadsheet.</p></a>
-      <a class="card" href="/truck-size-picker.html"><h2>Truck size picker</h2><p>See which truck fits your load by size and weight.</p></a>
-      <a class="card" href="/freight-class-calculator.html"><h2>Freight class calculator</h2><p>Estimate LTL class from weight and dimensions.</p></a>
-      <a class="card" href="/fuel-cost-per-mile.html"><h2>Fuel cost per mile</h2><p>What every mile costs you in fuel, and what a trip will cost.</p></a>
-      <a class="card" href="/detention-time-calculator.html"><h2>Detention time calculator</h2><p>How much detention you can bill, with a line to paste on your invoice.</p></a>
-      <a class="card" href="/pallet-cube-calculator.html"><h2>Pallet and cube calculator</h2><p>Cubic feet, weight and trailer space for your pallets.</p></a>
+      <a class="card" href="/load-profit-calculator.html"><span class="ico" style="background:#2347FF"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8 M14 7h7v7"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Load profit calculator</h2><p>Profit per load, profit per mile and your break-even rate. Plus a free load tracker spreadsheet.</p></a>
+      <a class="card" href="/truck-size-picker.html"><span class="ico" style="background:#2347FF"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z M3 8l9 5 9-5 M12 13v8"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Truck size picker</h2><p>See which truck fits your load by size and weight.</p></a>
+      <a class="card" href="/freight-class-calculator.html"><span class="ico" style="background:#2347FF"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18 M5 7h14 M5 7l-3 7a3 3 0 006 0L5 7z M19 7l-3 7a3 3 0 006 0l-3-7z"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Freight class calculator</h2><p>Estimate LTL class from weight and dimensions.</p></a>
+      <a class="card" href="/fuel-cost-per-mile.html"><span class="ico" style="background:#2347FF"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V5a2 2 0 012-2h6a2 2 0 012 2v16 M3 21h12 M14 9h2a2 2 0 012 2v5a1.5 1.5 0 003 0V9l-3-3 M6 8h6"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Fuel cost per mile</h2><p>What every mile costs you in fuel, and what a trip will cost.</p></a>
+      <a class="card" href="/detention-time-calculator.html"><span class="ico" style="background:#2347FF"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a9 9 0 100-18 9 9 0 000 18z M12 7v5l3 2"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Detention time calculator</h2><p>How much detention you can bill, with a line to paste on your invoice.</p></a>
+      <a class="card" href="/pallet-cube-calculator.html"><span class="ico" style="background:#2347FF"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 5-10 5L2 7l10-5z M2 12l10 5 10-5 M2 17l10 5 10-5"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Pallet and cube calculator</h2><p>Cubic feet, weight and trailer space for your pallets.</p></a>
       <h2 class="grp">Owner-operators</h2>
-      <a class="card" href="/profit-per-mile-calculator.html"><h2>Profit per mile</h2><p>Your cost per mile, profit per mile and break-even rate from one month of numbers.</p></a>
-      <a class="card" href="/ifta-fuel-tax-helper.html"><h2>IFTA fuel tax helper</h2><p>Fleet mpg and the tax you owe or the credit you get, state by state.</p></a>
-      <a class="card" href="/trucking-compliance-checklist.html"><h2>Trucking compliance checklist</h2><p>The main registrations and paperwork for a new carrier, to tick off.</p></a>
-      <a class="card" href="/trip-log.html"><h2>Trip log</h2><p>Log trips, miles, revenue and expenses. Stays on your device, downloads as CSV.</p></a>
+      <a class="card" href="/profit-per-mile-calculator.html"><span class="ico" style="background:#0E9F6E"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V10 M18 20V4 M6 20v-4"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Profit per mile</h2><p>Your cost per mile, profit per mile and break-even rate from one month of numbers.</p></a>
+      <a class="card" href="/ifta-fuel-tax-helper.html"><span class="ico" style="background:#0E9F6E"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5L5 19 M6.5 9a2.5 2.5 0 100-5 2.5 2.5 0 000 5z M17.5 20a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></svg></span><span class="go" aria-hidden="true">→</span><h2>IFTA fuel tax helper</h2><p>Fleet mpg and the tax you owe or the credit you get, state by state.</p></a>
+      <a class="card" href="/trucking-compliance-checklist.html"><span class="ico" style="background:#0E9F6E"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2 M9 2h6v4H9z M9 13l2 2 4-4"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Trucking compliance checklist</h2><p>The main registrations and paperwork for a new carrier, to tick off.</p></a>
+      <a class="card" href="/trip-log.html"><span class="ico" style="background:#0E9F6E"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z M12 13a3 3 0 100-6 3 3 0 000 6z"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Trip log</h2><p>Log trips, miles, revenue and expenses. Stays on your device, downloads as CSV.</p></a>
       <h2 class="grp">Any small business</h2>
-      <a class="card" href="/missed-call-cost-calculator.html"><h2>Missed call cost calculator</h2><p>See what unanswered calls cost you every year.</p></a>
-      <a class="card" href="/automation-roi-calculator.html"><h2>Automation ROI calculator</h2><p>What a repeated task costs you, and what automating it would save.</p></a>
-      <a class="card" href="/invoice-generator.html"><h2>Invoice generator</h2><p>Make a clean invoice and print it or save it as a PDF.</p></a>
-      <a class="card" href="/what-to-automate-first.html"><h2>What to automate first</h2><p>A one-minute quiz that picks the two or three automations that would save you the most time.</p></a>
+      <a class="card" href="/what-to-automate-first.html"><span class="ico" style="background:#7A3FF2"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4 M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span><span class="go" aria-hidden="true">→</span><h2>What to automate first</h2><p>A one-minute quiz that picks the two or three automations that would save you the most time.</p></a>
+      <a class="card" href="/missed-call-cost-calculator.html"><span class="ico" style="background:#7A3FF2"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z M16 2l6 6 M22 2l-6 6"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Missed call cost calculator</h2><p>See what unanswered calls cost you every year.</p></a>
+      <a class="card" href="/automation-roi-calculator.html"><span class="ico" style="background:#7A3FF2"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Automation ROI calculator</h2><p>What a repeated task costs you, and what automating it would save.</p></a>
+      <a class="card" href="/invoice-generator.html"><span class="ico" style="background:#7A3FF2"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z M14 2v6h6 M8 13h8 M8 17h8 M8 9h2"/></svg></span><span class="go" aria-hidden="true">→</span><h2>Invoice generator</h2><p>Make a clean invoice and print it or save it as a PDF.</p></a>
     </div>
 
     <div class="tp-cta">
       <h2>Need something built for your business?</h2>
       <p>Websites, dispatch tools, booking and automations. Tell me what is slowing you down.</p>
       <a class="btn" href="/#contact">Tell me what is slowing you down</a>
+      <p style="margin-top:18px"><a href="/" style="color:var(--muted)">← Back to the home page</a></p>
     </div>
   </main>
 </div>
