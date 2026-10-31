@@ -9,7 +9,7 @@ function clean(v, max) {
   return String(v == null ? '' : v).replace(/\u0000/g, '').replace(/\s+/g, ' ').trim().slice(0, max);
 }
 
-const SAFE = 'I can only help with questions about what Sony builds and how it works. For anything else, please book a free 15-minute call: /book.html';
+const SAFE = 'I can only help with questions about what sonai builds and how it works. For anything else, please book a free 15-minute call: /book.html';
 const INJECT = /(ignore|disregard|forget|override)\s+(all\s+|any\s+|your\s+|the\s+|previous\s+|prior\s+|above\s+)*(instructions|rules|prompt)|system\s*prompt|developer\s*mode|jailbreak|you\s+are\s+now|act\s+as\s+(if|a|an)\b|pretend\s+(to\s+be|you)|reveal\s+(your|the)\s+(prompt|instructions)/i;
 const BADOUT = /https?:\/\/|www\.|\$\s?\d|\d\s?(usd|dollars)|[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}|\bwire\b|crypto|bitcoin|gift\s*card|password|guarantee/i;
 const last = new Map();

@@ -453,3 +453,6 @@ body.menu-open{overflow:hidden}
 .about-in{margin-top:52px;padding-top:44px;border-top:1px solid var(--line,rgba(12,26,43,.12))}
 @media(min-width:900px) and (max-height:720px){.hero .hero-ask{display:none}}
 @media(max-width:899px){.hero-ask{max-width:none}}
+
+/* brand */
+.logo .ld{display:inline-block;width:.2em;height:.2em;border-radius:50%;background:#FF6A2B;font-size:inherit;color:transparent;overflow:hidden;text-indent:-9em;margin-left:.06em;vertical-align:baseline;text-decoration:none;border:0;padding:0}
