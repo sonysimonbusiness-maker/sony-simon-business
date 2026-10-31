@@ -429,3 +429,16 @@ body.menu-open{overflow:hidden}
 .cta-row{display:flex;flex-wrap:wrap;gap:10px}
 .btn-o2{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}.btn-o2:hover{background:rgba(255,255,255,.12)}
 @media(max-width:600px){.cta-band{padding:18px}.cta-row .btn{width:100%;text-align:center}}
+
+/* industries (home) */
+.ind{padding:clamp(48px,8vw,88px) 0}
+.ind-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:26px}
+.ind-c{position:relative;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;background:#fff;border:1px solid rgba(12,26,43,.12);border-radius:20px;padding:22px 22px 58px;transition:transform .15s,box-shadow .15s,border-color .15s}
+.ind-c:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(12,26,43,.10);border-color:#2347FF}
+.ind-t{font:700 28px/1.05 "Barlow Condensed",Barlow,sans-serif}
+.ind-p{color:#5A6780;font-size:16px;line-height:1.4}
+.ind-b{font-size:15px;line-height:1.4;padding-top:10px;border-top:1px solid rgba(12,26,43,.1)}
+.ind-go{position:absolute;left:22px;bottom:20px;font-weight:700;color:#2347FF}
+@media(max-width:1000px){.ind-g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.ind-g{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.ind-c{transition:none}.ind-c:hover{transform:none}}
