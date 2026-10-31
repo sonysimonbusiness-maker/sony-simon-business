@@ -182,6 +182,7 @@ function frame(now){requestAnimationFrame(frame);if(!live)return;var dt=Math.min
   var z=o.wz+near*46+o.h*110,s=1+o.h*.09,rx=o.wr+(isA&&hasP?(pyp-o.y)/ch*-6:0),ry=-o.wr*.8+(isA&&hasP?(pxp-o.x)/cw*8:0);
   e.style.transform='translate3d('+o.x.toFixed(1)+'px,'+o.y.toFixed(1)+'px,'+z.toFixed(1)+'px) rotateX('+rx.toFixed(2)+'deg) rotateY('+ry.toFixed(2)+'deg) scale('+s.toFixed(3)+')';
   e.style.opacity=(((mode==='explore'||hasP)?.66:.62)+.34*Math.max(o.h,near*.7)).toFixed(3);
+  if(isA&&hasP){e.style.setProperty('--mx',((pxp-o.x)/cw*100+50).toFixed(1)+'%');e.style.setProperty('--my',((pyp-o.y)/ch*100+50).toFixed(1)+'%')}
   if(isA!==o.on){o.on=isA;e.classList.toggle('on',isA)}}
  var show=act||cen;if(show&&show.idx!==curIdx){curIdx=show.idx;document.getElementById('cnt').textContent=('0'+(show.idx+1)).slice(-2)+' / 06 · '+D[show.idx][1]}
  cur_act=act}
@@ -204,7 +205,7 @@ var lb=document.getElementById('lb');function openLb(i){if(!lb)return;lb.querySe
 if('IntersectionObserver' in window)new IntersectionObserver(function(e){live=e[0].isIntersecting;last=performance.now()},{threshold:0}).observe(hero);
 var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build,160)});
 /* cursor */
-if(fine&&!reduce){var cur=document.createElement('div');cur.className='cur';cur.setAttribute('aria-hidden','true');cur.innerHTML='<span>Drag</span>';document.body.appendChild(cur);var cx=0,cy=0,px=0,py=0;
+if(false){var cur=document.createElement('div');cur.className='cur';cur.setAttribute('aria-hidden','true');cur.innerHTML='<span>Drag</span>';document.body.appendChild(cur);var cx=0,cy=0,px=0,py=0;
  addEventListener('pointermove',function(e){px=e.clientX;py=e.clientY;cur.classList.add('on')});
  (function f(){cx+=(px-cx)*.2;cy+=(py-cy)*.2;cur.style.transform='translate3d('+cx+'px,'+cy+'px,0)';requestAnimationFrame(f)})();
  hero.addEventListener('pointerover',function(e){var ui=isUI(e.target);cur.classList.toggle('big',!ui);cur.classList.toggle('hide',!!ui);cur.firstChild.textContent=(e.target.closest&&e.target.closest('.tc')&&mode==='explore')?'Click to view':'Drag to explore'});
