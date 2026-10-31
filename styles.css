@@ -421,3 +421,8 @@ body.menu-open{overflow:hidden}
 .quote{background:var(--ink);color:#fff;padding:84px 0}.quote figure{margin:0;text-align:center}
 .quote blockquote{margin:0 0 22px}.quote blockquote p{font:italic 400 clamp(30px,4.4vw,48px)/1.15 "Instrument Serif",Georgia,serif;color:#fff}
 .quote figcaption{display:flex;flex-direction:column;gap:2px;color:#B9C4E4}.quote figcaption b{color:#fff;font-size:17px}
+.cta-band{margin-top:28px;padding:22px 24px;border-radius:18px;background:#0B1530;color:#fff;display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;justify-content:space-between}
+.cta-band p{margin:0;font:600 20px/1.3 Barlow,sans-serif;max-width:340px}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px}
+.btn-o2{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}.btn-o2:hover{background:rgba(255,255,255,.12)}
+@media(max-width:600px){.cta-band{padding:18px}.cta-row .btn{width:100%;text-align:center}}

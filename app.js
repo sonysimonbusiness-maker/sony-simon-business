@@ -83,7 +83,7 @@ if(pin&&$('.fix-stage')){
   svg.setAttribute('viewBox','0 0 '+W+' '+H);svg.innerHTML=d};
  drawTangle();addEventListener('resize',drawTangle);
  var live=false;
- var tl=gsap.timeline({scrollTrigger:{trigger:'.fix-stage',start:'top top',end:'+=2200',scrub:.6,pin:true,anticipatePin:1,
+ var tl=gsap.timeline({scrollTrigger:{trigger:'.fix-stage',start:'top top',end:'+=1500',scrub:.6,pin:true,anticipatePin:1,
   onUpdate:function(s){var p=s.progress,after=p>.37;
    if(after&&title.dataset.s!=='a'){title.dataset.s='a';kick.textContent='The fix';title.textContent='Simple tools that fit.'}else if(!after&&title.dataset.s==='a'){title.dataset.s='';kick.textContent='The problem';title.textContent='Work lives in ten places.'}
    if(p>.56&&!live){live=true;slEl.dataset.live='1';startLoop()}else if(p<.5&&live){live=false;slEl.dataset.live='0';resetLoop()}}}});
@@ -196,7 +196,7 @@ function up(e){if(!drag)return;drag=false;dragVx=dragVy=0;hero.classList.remove(
  if(moved<8){var o=cur_act;if(fine&&o){if(mode==='explore')openLb(o.idx);else setMode('explore')}else{var t=document.elementFromPoint(e.clientX,e.clientY),cd=t&&t.closest&&t.closest('.tc');if(cd){var k=cards.filter(function(q){return q.el===cd})[0];if(k){if(mode==='explore')openLb(k.idx);else setMode('explore')}}}}}
 hero.addEventListener('pointerup',up);hero.addEventListener('pointercancel',function(){drag=false;dragVx=dragVy=0;hero.classList.remove('drag')});
 hero.addEventListener('pointerleave',function(){if(!drag){mx=-1;my=-1}});
-document.getElementById('explore').onclick=function(){setMode('explore')};
+var exb=document.getElementById('explore');if(exb)exb.onclick=function(){setMode('explore')};
 document.getElementById('bNext').onclick=function(){nudge(-px_*1.5,0)};document.getElementById('bBack').onclick=function(){nudge(px_*1.5,0)};
 document.getElementById('bIntro').onclick=function(){setMode('intro');tgt=null};
 addEventListener('keydown',function(e){if(!live||/INPUT|TEXTAREA/.test((e.target||{}).tagName||''))return;if(e.key==='ArrowRight'){nudge(-px_,0)}else if(e.key==='ArrowLeft'){nudge(px_,0)}else if(e.key==='ArrowDown'&&mode==='explore'){e.preventDefault();nudge(0,-py_)}else if(e.key==='ArrowUp'&&mode==='explore'){e.preventDefault();nudge(0,py_)}else if(e.key==='Escape'&&mode==='explore'){document.getElementById('bIntro').click()}});
