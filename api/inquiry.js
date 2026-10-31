@@ -1,6 +1,6 @@
 // Receives the contact form, checks it, and passes it to Make.
 // Unlike posting straight from the browser, this tells the page whether Make really accepted it.
-const HOOK = process.env.MAKE_HOOK_URL || 'https://hook.us2.make.com/oe24qeoj05tg1b5bgqatd0vugcatnpmh';
+const HOOK = process.env.MAKE_HOOK_URL || '';
 const hits = new Map();
 
 function clean(v, max) {
