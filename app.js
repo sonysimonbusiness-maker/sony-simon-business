@@ -134,11 +134,11 @@ var D=[['dispatch','Freight dispatch','Dashboard · Maps'],['driver','Driver app
 function reveal(){root.classList.add('ready');root.classList.add('pre-done');setTimeout(function(){root.classList.remove('pre');root.classList.remove('pre-done')},1100);try{sessionStorage.setItem('ss_pre','1')}catch(e){}}
 if(root.classList.contains('pre')){
  var n=document.getElementById('preN'),bar=document.getElementById('preBar'),t0=performance.now(),done=false,loaded=0,shown=0;
- var imgs=D.map(function(d){return new Promise(function(r){var i=new Image();i.onload=i.onerror=function(){loaded++;r()};i.src='img/concept-'+d[0]+'.webp'})});
+ var NP=3;var imgs=D.slice(0,NP).map(function(d){return new Promise(function(r){var i=new Image();i.onload=i.onerror=function(){loaded++;r()};i.src='img/concept-'+d[0]+'.webp'})});
  var all=Promise.all(imgs.concat([Promise.race([document.fonts?document.fonts.ready:Promise.resolve(),new Promise(function(r){setTimeout(r,800)})])]));var ok=false;all.then(function(){ok=true});
- (function f(now){var target=ok?100:Math.min(88,loaded/D.length*88);shown+=(target-shown)*.12;if(now-t0<900)shown=Math.min(shown,(now-t0)/900*100);
+ (function f(now){var target=ok?100:Math.min(88,loaded/NP*88);shown+=(target-shown)*.12;if(now-t0<500)shown=Math.min(shown,(now-t0)/500*100);
   n.textContent=Math.round(shown);bar.style.transform='scaleX('+(shown/100)+')';
-  if((ok&&shown>96)||now-t0>3000){n.textContent=100;bar.style.transform='scaleX(1)';if(!done){done=true;setTimeout(reveal,150)}return}requestAnimationFrame(f)})(t0);
+  if((ok&&shown>96)||now-t0>1400){n.textContent=100;bar.style.transform='scaleX(1)';if(!done){done=true;setTimeout(reveal,60)}return}requestAnimationFrame(f)})(t0);
 }else root.classList.add('ready');
 /* infinite tile wall */
 var hero=document.getElementById('hero'),tor=document.getElementById('tor');if(!hero||!tor)return;
