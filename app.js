@@ -221,3 +221,5 @@ var pos=[0,0],dir=[-1,1],boost=0,lastY=pageYOffset,w=[0,0];function meas(){rows.
 (function(){var b=document.getElementById('mbtn'),m=document.getElementById('menu');if(!b||!m)return;
 function set(o){m.classList.toggle('open',o);m.setAttribute('aria-hidden',o?'false':'true');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Close':'Menu';document.body.classList.toggle('menu-open',o)}
 b.onclick=function(){set(!m.classList.contains('open'))};m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});addEventListener('keydown',function(e){if(e.key==='Escape')set(false)})})();
+/* hero assistant prompts */
+(function(){document.querySelectorAll('.ha-b button').forEach(function(b){b.addEventListener('click',function(){if(window.__cwAsk)window.__cwAsk(b.getAttribute('data-q')||'')})})})();

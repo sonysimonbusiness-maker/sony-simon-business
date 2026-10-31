@@ -54,6 +54,7 @@
       .catch(function () { send.disabled = false; note.textContent = 'Could not reach the assistant. Please book a call or use the contact form.'; });
   }
   form.addEventListener('submit', function (e) { e.preventDefault(); ask(inp.value); });
+  window.__cwAsk = function (q) { open(); if (q) ask(q); };
   chips.addEventListener('click', function (e) { if (e.target.tagName === 'BUTTON') ask(e.target.textContent); });
   if (ss('cwOpen') === '1') open();
   else if (!ss('cwTip')) { setTimeout(function () { if (p.hidden) { tip.hidden = false; ss('cwTip', '1'); setTimeout(function () { tip.hidden = true; }, 9000); } }, 5000); }
