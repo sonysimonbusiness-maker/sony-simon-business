@@ -129,7 +129,7 @@ st.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefa
 /* ===== v8 hero: preloader, drag wall, marquee, menu, cursor ===== */
 (function(){
 var root=document.documentElement,reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,fine=matchMedia('(pointer:fine)').matches;
-var D=[['dispatch','Freight dispatch','Dashboard · Maps'],['driver','Driver app','Mobile app'],['reports','Daily report','Reports · Email'],['crewhub','Staff app','Mobile app'],['fuelhub','Store dashboard','Dashboard'],['maple','Ordering website','Website']];
+var D=[['dispatch','Freight dispatch','Dashboard · Maps','Every load, driver and map on one screen.'],['driver','Driver app','Mobile app','Stops, check-in and paperwork in the driver\'s pocket.'],['reports','Daily report','Reports · Email','The day\'s numbers, emailed to the owner.'],['crewhub','Staff app','Mobile app','Shift tasks and counts for store staff.'],['fuelhub','Store dashboard','Dashboard','Cash, fuel and sales for every store.'],['maple','Ordering website','Website','Online ordering for a restaurant.']];
 /* preloader */
 function reveal(){root.classList.add('ready');root.classList.add('pre-done');setTimeout(function(){root.classList.remove('pre');root.classList.remove('pre-done')},1100);try{sessionStorage.setItem('ss_pre','1')}catch(e){}}
 if(root.classList.contains('pre')){
@@ -152,7 +152,7 @@ function build(){
  hero.style.setProperty('--cw',cw+'px');hero.style.setProperty('--ch',ch+'px');
  tor.innerHTML='';cards=[];
  for(var r=0;r<NR;r++)for(var c=0;c<NC;c++){var idx=((c+r*2+(r%2))%6+6)%6,el=document.createElement('div');el.className='tc';
-  el.innerHTML='<img data-s="img/concept-'+D[idx][0]+'.webp" alt="" draggable="false" decoding="async"><span class="cc">Concept</span><span class="ct">'+D[idx][1]+'</span><span class="cg">'+D[idx][2]+'</span>';
+  el.innerHTML='<img data-s="img/concept-'+D[idx][0]+'.webp" alt="" draggable="false" decoding="async"><span class="cc">Concept</span><span class="ct">'+D[idx][1]+'</span><span class="cg">'+D[idx][2]+'</span><span class="cd">'+D[idx][3]+'</span><span class="co">Open <b>&#8599;</b></span>';
   tor.appendChild(el);cards.push({el:el,c:c,r:r,idx:idx,h:0,vis:true,x:0,y:0})}}
 build();
 function setMode(m){if(m===mode)return;mode=m;hero.classList.toggle('explore',m==='explore');document.getElementById('hint').textContent=m==='explore'?'Drag anywhere · Click a tile':'Drag to explore · Scroll to continue'}
@@ -182,7 +182,6 @@ function frame(now){requestAnimationFrame(frame);if(!live)return;var dt=Math.min
   var z=o.wz+near*46+o.h*110,s=1+o.h*.09,rx=o.wr+(isA&&hasP?(pyp-o.y)/ch*-6:0),ry=-o.wr*.8+(isA&&hasP?(pxp-o.x)/cw*8:0);
   e.style.transform='translate3d('+o.x.toFixed(1)+'px,'+o.y.toFixed(1)+'px,'+z.toFixed(1)+'px) rotateX('+rx.toFixed(2)+'deg) rotateY('+ry.toFixed(2)+'deg) scale('+s.toFixed(3)+')';
   e.style.opacity=(((mode==='explore'||hasP)?.66:.62)+.34*Math.max(o.h,near*.7)).toFixed(3);
-  if(isA&&hasP){e.style.setProperty('--mx',((pxp-o.x)/cw*100+50).toFixed(1)+'%');e.style.setProperty('--my',((pyp-o.y)/ch*100+50).toFixed(1)+'%')}
   if(isA!==o.on){o.on=isA;e.classList.toggle('on',isA)}}
  var show=act||cen;if(show&&show.idx!==curIdx){curIdx=show.idx;document.getElementById('cnt').textContent=('0'+(show.idx+1)).slice(-2)+' / 06 · '+D[show.idx][1]}
  cur_act=act}
