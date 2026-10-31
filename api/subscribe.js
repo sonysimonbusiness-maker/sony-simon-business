@@ -1,7 +1,7 @@
 // Receives the free-download sign-up, checks it, and passes it to Make.
 // Like the contact form, it tells the page whether Make really accepted it.
 const HOOK = process.env.MAKE_SUBSCRIBE_HOOK_URL || 'https://hook.us2.make.com/vg4znhfg21ofxoebwtht3fhyhtgxnt6n';
-const RESOURCES = ['load-tracker-template', 'automation-quiz', 'trades-job-tracker'];
+const RESOURCES = ['load-tracker-template', 'automation-quiz', 'trades-job-tracker', 'agent-waitlist'];
 const hits = new Map();
 
 function clean(v, max) {
