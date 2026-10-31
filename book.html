@@ -151,7 +151,7 @@ body{overflow-x:hidden}
 .cs-note{margin-top:14px;font-size:15px;color:var(--muted);max-width:720px}
 
 .sv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:14px}
-.sv-grid .tp-card h2,.sv-grid .tp-card h3{font-size:26px;margin-bottom:6px}.sv-grid .tp-card .for{color:var(--muted);font-size:16px;margin-bottom:10px}
+.sv-grid .tp-card h2,.sv-grid .tp-card h3{font-size:26px;margin-bottom:6px}.sv-grid .tp-card .sv-for{color:var(--muted);font-size:16px;margin-bottom:10px}
 .sv-grid h4{font:700 15px Barlow,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
 .sv-grid ul{margin:0;padding-left:20px;color:var(--ink);font-size:16px;line-height:1.5}
 .sv-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
@@ -159,17 +159,16 @@ body{overflow-x:hidden}
 </head>
 <body>
 <div class="tp">
-  <div class="tp-top">
+  <header class="tp-top">
     <a class="logo" href="/" aria-label="Sony, home"><svg viewBox="0 0 64 64" width="32" height="32" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#2347FF"/><path d="M46 19H27a6.5 6.5 0 0 0 0 13H37a6.5 6.5 0 0 1 0 13H18" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="19" r="3.4" fill="#BFD0FF"/><circle cx="18" cy="45" r="3.4" fill="#fff"/></svg><span>Sony</span></a>
-    <div class="nav2"><a href="/services.html">Services</a><a href="/work.html">Work</a><a href="/">Home</a></div>
-  </div>
+    <div class="nav2"><a href="/services.html">Services</a><a href="/work.html">Work</a><a href="/">Home</a></div></header>
   <main>
 <style>
 .bk{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;max-width:640px}
 .bk label.t{display:block;font-weight:600;margin:12px 0 6px}
 .bk input[type=text],.bk input[type=email],.bk textarea,.bk select{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 15px;font:500 17px Barlow,sans-serif;box-sizing:border-box;background:#fff}
 .bk textarea{min-height:110px}
-.bk .msg{min-height:22px;font-size:15px;margin-top:10px}.bk .msg.err{color:#B3261E}.bk .done{color:var(--ok);font-weight:600}
+.bk .msg{min-height:22px;font-size:15px;margin-top:10px}.bk .msg.err{color:#B3261E}.bk .thanks{color:var(--ok);font-weight:600}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 </style><div class="tp-hero"><a class="pill" href="/">&larr; Home</a><br><p class="kick">Free call</p><h1>Book a free 15-minute call.</h1><p>Tell me what is slowing you down and when you are free. I reply by email to arrange a time.</p></div><section class="cs-sec"><h2>What we will cover</h2><p>How the work moves through your day, what could be automated, and what is realistic. No sales pitch, and no obligation. If I am not the right fit, I will say so.</p></section><section class="cs-sec"><h2>Request a time</h2><form class="bk" id="bk" novalidate>
 <label class="t" for="n">Your name</label><input id="n" type="text" autocomplete="name">
@@ -189,7 +188,7 @@ go.disabled=true;msg.textContent='Sending...';
 var goal='CALL REQUEST (15 minutes). Best time: '+$('w').value+', '+$('z').value+' time. Note: '+g;
 fetch('/api/inquiry',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,email:em,goal:goal,page:location.pathname,website:$('web').value,t:Date.now()-t0})})
 .then(function(r){return r.json().then(function(j){return {ok:r.ok&&j.ok,s:r.status}})}).then(function(r){
- if(r.ok){f.innerHTML='<p class="done">Thanks. I will reply by email to arrange a time.</p>'}
+ if(r.ok){f.innerHTML='<p class="thanks">Thanks. I will reply by email to arrange a time.</p>'}
  else{go.disabled=false;msg.className='msg err';msg.textContent=r.s==429?'Too many tries. Please try again later.':'Something went wrong. Please try again.'}})
 .catch(function(){go.disabled=false;msg.className='msg err';msg.textContent='Could not reach the server. Please try again.'})})})();
 </script></section><section class="cs-sec"><h2>Prefer to write?</h2><p>Use the <a href="/#contact">contact form</a> instead, or see <a href="/services.html">what I build</a>. <a href="/privacy.html">Privacy</a></p></section>

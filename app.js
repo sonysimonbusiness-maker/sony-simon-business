@@ -152,7 +152,7 @@ function build(){
  hero.style.setProperty('--cw',cw+'px');hero.style.setProperty('--ch',ch+'px');
  tor.innerHTML='';cards=[];
  for(var r=0;r<NR;r++)for(var c=0;c<NC;c++){var idx=((c+r*2+(r%2))%6+6)%6,el=document.createElement('div');el.className='tc';
-  el.innerHTML='<img src="img/concept-'+D[idx][0]+'.webp" alt="" draggable="false" decoding="async"><span class="cc">Concept</span><span class="ct">'+D[idx][1]+'</span><span class="cg">'+D[idx][2]+'</span>';
+  el.innerHTML='<img data-s="img/concept-'+D[idx][0]+'.webp" alt="" draggable="false" decoding="async"><span class="cc">Concept</span><span class="ct">'+D[idx][1]+'</span><span class="cg">'+D[idx][2]+'</span>';
   tor.appendChild(el);cards.push({el:el,c:c,r:r,idx:idx,h:0,vis:true,x:0,y:0})}}
 build();
 function setMode(m){if(m===mode)return;mode=m;hero.classList.toggle('explore',m==='explore');document.getElementById('hint').textContent=m==='explore'?'Drag anywhere · Click a tile':'Drag to explore · Scroll to continue'}
@@ -168,7 +168,7 @@ function frame(now){requestAnimationFrame(frame);if(!live)return;var dt=Math.min
  var A=reduce?0:5+spd*1.7,mx2=vw/2+px_,my2=vh/2+py_,best=1e9,hit=null,cen=null,cd=1e9;
  for(var i=0;i<cards.length;i++){var o=cards[i],x=wrap(o.c*px_+offX,totW),y=wrap(o.r*py_+offY,totH),e=o.el;
   if(Math.abs(x)>mx2||Math.abs(y)>my2){if(o.vis){e.style.visibility='hidden';o.vis=false}continue}
-  if(!o.vis){e.style.visibility='visible';o.vis=true}
+  if(!o.vis){e.style.visibility='visible';o.vis=true}var im=e.firstChild;if(im.dataset.s){im.src=im.dataset.s;im.removeAttribute('data-s')}
   o.x=x;o.y=y;
   var d=Math.hypot(x,y),ph=d/170-T2*2.2+(x*.0016),wz=Math.sin(ph)*A,wr=Math.cos(ph)*A*.045;
   var inx=Math.abs(pxp-x)<cw/2&&Math.abs(pyp-y)<ch/2;
