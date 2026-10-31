@@ -207,7 +207,7 @@ var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(build
 if(fine&&!reduce){var cur=document.createElement('div');cur.className='cur';cur.setAttribute('aria-hidden','true');cur.innerHTML='<span>Drag</span>';document.body.appendChild(cur);var cx=0,cy=0,px=0,py=0;
  addEventListener('pointermove',function(e){px=e.clientX;py=e.clientY;cur.classList.add('on')});
  (function f(){cx+=(px-cx)*.2;cy+=(py-cy)*.2;cur.style.transform='translate3d('+cx+'px,'+cy+'px,0)';requestAnimationFrame(f)})();
- hero.addEventListener('pointerover',function(e){var ui=isUI(e.target);cur.classList.toggle('big',!ui);cur.classList.toggle('hide',!!ui);cur.firstChild.textContent=(e.target.closest&&e.target.closest('.tc')&&mode==='explore')?'View':'Drag'});
+ hero.addEventListener('pointerover',function(e){var ui=isUI(e.target);cur.classList.toggle('big',!ui);cur.classList.toggle('hide',!!ui);cur.firstChild.textContent=(e.target.closest&&e.target.closest('.tc')&&mode==='explore')?'Click to view':'Drag to explore'});
  hero.addEventListener('pointerleave',function(){cur.classList.remove('big','hide')});
  document.addEventListener('pointerover',function(e){if(!hero.contains(e.target))cur.classList.remove('big','hide')})}
 })();
